@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Diq - Pendamping Riset Profesional & Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #9FB3DF, #C6E7FF);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2C3E50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8EA7E9;
+        }
+
+        .cta-button {
+            background: #8EA7E9;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #9FB3DF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(142, 167, 233, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #C6E7FF 0%, #9FB3DF 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #2C3E50;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #8EA7E9;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #C6E7FF;
+            color: #2C3E50;
+        }
+
+        .btn-outline {
+            border: 2px solid #2C3E50;
+            color: #2C3E50;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #2C3E50;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2C3E50;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: #9FB3DF;
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #8EA7E9;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #FFFFFF, #F7F9FC);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 3px solid #8EA7E9;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #8EA7E9;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price-details {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .price-details li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #EAF2FB;
+        }
+
+        .price-details li:before {
+            content: "✓ ";
+            color: #8EA7E9;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #9FB3DF 0%, #FFFFFF 100%);
+        }
+
+        .profile-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            text-align: center;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+        }
+
+        .profile-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 15px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+
+        .profile-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .credentials {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .credentials h4 {
+            color: #8EA7E9;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: #8EA7E9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #2C3E50;
+        }
+
+        /* Publications Section */
+        .publications {
+            padding: 5rem 2rem;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .pub-card {
+            background: #F7F9FC;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #8EA7E9;
+        }
+
+        .pub-card h4 {
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: #C6E7FF;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #8EA7E9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #C6E7FF;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #C6E7FF;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        .newsletter button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #8EA7E9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background: #9FB3DF;
+        }
+
+        .scroll-x {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .scroll-x > div {
+            scroll-snap-align: start;
+            min-width: 350px;
+            flex-shrink: 0;
+        }
+
+        .scroll-x::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-x::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .scroll-x::-webkit-scrollbar-thumb {
+            background: #8EA7E9;
+            border-radius: 10px;
+        }
+
+        .scroll-x::-webkit-scrollbar-thumb:hover {
+            background: #9FB3DF;
+        }
+
+        .news-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 4px solid #8EA7E9;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .news-card h4 {
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .news-card h4 a {
+            color: #2C3E50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .news-card h4 a:hover {
+            color: #8EA7E9;
+        }
+
+        .news-source {
+            font-size: 0.85rem;
+            color: #8EA7E9;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pub-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .scroll-x > div {
+                min-width: 280px;
+            }
+            
+            nav {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .service-card, .pub-card, .news-card, .testimonial-card {
+                padding: 1.5rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-image img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .btn-primary, .btn-outline, .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Tutor Diq</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#publikasi">Publikasi</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+            </ul>
+            <a href="https://wa.me/6285161456800" class="cta-button">Hubungi Kami</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Pendamping Riset Profesional & Personal</h1>
+            <p>Bimbingan skripsi, tesis, dan riset akademik dengan metode ilmiah dan dukungan dari praktisi berpengalaman dengan 7+ publikasi terindeks.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/6285161456800" class="btn-primary">Daftar Sekarang</a>
+                <a href="https://tutordiq.carrd.co/" class="btn-outline" target="_blank">Lihat Layanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </div>
+                <h3>Tutoring Riset Individu</h3>
+                <p>Bimbingan personal untuk penelitian skripsi, tesis, dan disertasi. Fokus pada metodologi, analisis data, dan penulisan akademik berkualitas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                </div>
+                <h3>Review Draft Penelitian</h3>
+                <p>Evaluasi mendalam terhadap draft penelitian Anda, termasuk struktur, metodologi, analisis, dan kesesuaian dengan standar publikasi ilmiah.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+                <h3>Academic Coaching</h3>
+                <p>Pendampingan jangka panjang untuk mengembangkan kemampuan riset, menulis artikel ilmiah, dan mempersiapkan publikasi jurnal.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                        <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                        <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                        <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                        <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                        <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                        <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                        <line x1="9" y1="18" x2="15" y2="18"></line>
+                    </svg>
+                </div>
+                <h3>Corporate Consulting</h3>
+                <p>Konsultasi untuk korporasi terkait assessment recruitment, employee profiling, dan pengembangan instrumen pengukuran psikologis yang valid dan reliabel untuk organisasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Skills Section -->
+    <section class="services" style="background: linear-gradient(180deg, #FFFFFF, #F7F9FC); padding: 5rem 2rem;">
+        <h2 class="section-title">Software Analisis Data yang Dikuasai</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666;">Bimbingan analisis data menggunakan berbagai software statistik modern, disesuaikan dengan kebutuhan penelitian Anda</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 20 L6 20 L14 12 L6 4 L18 4"></path>
+                    </svg>
+                </div>
+                <h3>SPSS</h3>
+                <p>Software statistik paling populer untuk analisis data kuantitatif. Cocok untuk analisis deskriptif, inferensial, regresi, dan berbagai uji statistik parametrik dan non-parametrik.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Jamovi</h3>
+                <p>Software open-source yang user-friendly dengan interface modern. Ideal untuk mahasiswa yang baru belajar statistik dan membutuhkan visualisasi data yang interaktif.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 4 L17 16 C17 19, 15 21, 12 21 C9 21, 7 19, 7 16"></path>
+                        <line x1="14" y1="4" x2="20" y2="4"></line>
+                    </svg>
+                </div>
+                <h3>JASP</h3>
+                <p>Platform gratis untuk analisis statistik Bayesian dan frequentist. Sangat baik untuk penelitian yang membutuhkan pendekatan analisis yang lebih mendalam dan komprehensif.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="4" height="18"></rect>
+                        <rect x="10" y="8" width="4" height="13"></rect>
+                        <rect x="17" y="5" width="4" height="16"></rect>
+                    </svg>
+                </div>
+                <h3>jMetrik</h3>
+                <p>Software khusus untuk analisis psikometri dan Item Response Theory (IRT). Perfect untuk pengembangan instrumen, validasi alat ukur, dan analisis properti item.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2 class="section-title">Layanan Tutoring Profesional</h2>
+        <div class="pricing-card">
+            <h3>Paket Tutoring Riset</h3>
+            <p style="font-size: 1.1rem; color: #666; margin: 1.5rem 0;">Saya menyediakan berbagai paket layanan tutoring yang dapat disesuaikan dengan kebutuhan penelitian Anda</p>
+            <ul class="price-details">
+                <li>Bimbingan riset personal 1-on-1</li>
+                <li>Review draft penelitian (skripsi/tesis/disertasi)</li>
+                <li>Konsultasi metodologi penelitian</li>
+                <li>Panduan analisis data & interpretasi</li>
+                <li>Feedback konstruktif untuk perbaikan draft</li>
+                <li>Strategi publikasi ilmiah</li>
+            </ul>
+            <a href="https://tutordiq.carrd.co/" class="btn-primary" target="_blank" style="width: 100%; text-align: center;">Lihat Detail Paket & Harga</a>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile" id="tentang">
+        <div class="profile-content">
+            <div class="profile-image">
+                <img src="https://i.ibb.co.com/XkfkdMrT/Square-Sodiq.jpg" alt="Rafli Sodiq Bagaskara">
+            </div>
+            <div class="profile-text">
+                <h2>Rafli Sodiq Bagaskara, S.Psi.</h2>
+                <p><em>"Terkadang kita mengalami prokrastinasi dengan skripsi atau tesis kita bukan karena kita mau, tetapi karena kita tidak tahu. Ayo tutoring, kita cari tahu."</em></p>
+                
+                <div class="credentials">
+                    <h4>Latar Belakang & Keahlian</h4>
+                    <p>Lulusan terbaik Psikologi UNY (IPK 3.96). Berpengalaman sebagai Test Researcher di Faxtor Test Publisher dan Researcher di Mimo.id. Founder dari Anvesana Research Institute dan Co-Founder Equilibrium Assessment Center. Spesialisasi dalam psikometri, metodologi penelitian, dan analisis data.</p>
+                </div>
+
+                <div class="credentials">
+                    <h4>Kredensial Akademik</h4>
+                    <p>✓ 7+ Publikasi ilmiah terindeks<br>
+                    ✓ Juara 2 Article Writing Competition UGM 2024<br>
+                    ✓ Peneliti aktif dengan fokus vocational interest & psychometrics<br>
+                    ✓ Pembicara webinar internasional metodologi penelitian</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://scholar.google.com/citations?user=qnXle_MAAAAJ&hl=id" target="_blank">Google Scholar</a>
+                    <a href="https://id.linkedin.com/in/raflisodiq" target="_blank">LinkedIn</a>
+                    <a href="https://tutordiq.carrd.co/" target="_blank">Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- On-going Projects Section -->
+    <section class="services" style="background: white; padding: 5rem 2rem;">
+        <h2 class="section-title">On-going Projects</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666;">Proyek dan inisiatif yang sedang berjalan untuk mengembangkan ekosistem riset dan assessment di Indonesia</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                        <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                    </svg>
+                </div>
+                <h3><a href="https://www.anvesana.id/" target="_blank" style="color: #2C3E50; text-decoration: none;">Anvesana Research Institute</a></h3>
+                <p>Lembaga riset yayasan non-profit yang independen yang bertujuan untuk menguji, mengevaluasi dan memberikan kajian terkait dengan pengukuran psikologis yang adil, andal dan sahih di Indonesia.</p>
+                <a href="https://www.anvesana.id/" target="_blank" style="color: #8EA7E9; font-size: 0.9rem; font-weight: 600;">Kunjungi Website →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+                <h3><a href="https://mimo.id/" target="_blank" style="color: #2C3E50; text-decoration: none;">Mimo.id</a></h3>
+                <p>Layanan assessment recruitment berbasis AI yang berfungsi untuk melakukan resume screening, assessment dan interview secara efektif dan efisien untuk membantu perusahaan menemukan talenta terbaik.</p>
+                <a href="https://mimo.id/" target="_blank" style="color: #8EA7E9; font-size: 0.9rem; font-weight: 600;">Kunjungi Website →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8EA7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3><a href="https://www.equilibriumassessment.id/" target="_blank" style="color: #2C3E50; text-decoration: none;">Equilibrium Assessment Center</a></h3>
+                <p>Biro assessment yang bertujuan memberikan career guide kepada lulusan muda untuk menemukan potensi terbaiknya melalui asesmen komprehensif dan konseling karir profesional.</p>
+                <a href="https://www.equilibriumassessment.id/" target="_blank" style="color: #8EA7E9; font-size: 0.9rem; font-weight: 600;">Kunjungi Website →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publikasi">
+        <h2 class="section-title">Publikasi Ilmiah Terpilih</h2>
+        <div class="pub-grid">
+            <div class="pub-card">
+                <h4><a href="https://jurnal.ugm.ac.id/jpsi/article/view/101309" target="_blank" style="color: #2C3E50; text-decoration: none;">Exploring Vocational Interest Measurement Instruments in Indonesia</a></h4>
+                <p>Jurnal Psikologi UGM, 2024 - Scoping review tentang instrumen pengukuran minat vokasional di Indonesia.</p>
+            </div>
+            <div class="pub-card">
+                <h4><a href="https://journal.uny.ac.id/index.php/pri/article/view/67709" target="_blank" style="color: #2C3E50; text-decoration: none;">Development of an Integrated Vocational Interest Website</a></h4>
+                <p>Psychological Research and Intervention, 2023 - Pengembangan website asesmen minat karir untuk siswa SMA.</p>
+            </div>
+            <div class="pub-card">
+                <h4><a href="https://ejournal.uin-suska.ac.id/index.php/psikologi/article/view/21124" target="_blank" style="color: #2C3E50; text-decoration: none;">Adaptasi Social Connectedness Scale-Revised</a></h4>
+                <p>Jurnal Psikologi, 2023 - Adaptasi dan validasi alat ukur keterhubungan sosial edisi Bahasa Indonesia.</p>
+            </div>
+            <div class="pub-card">
+                <h4><a href="https://www.researchgate.net/publication/372583214_Kesepian_dan_Motivasi_Akademik_Mahasiswa" target="_blank" style="color: #2C3E50; text-decoration: none;">Loneliness and Academic Motivation</a></h4>
+                <p>Jurnal Pendidikan dan Psikologi, 2023 - Studi tentang hubungan kesepian dengan motivasi akademik mahasiswa.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://scholar.google.com/citations?user=qnXle_MAAAAJ&hl=id" class="btn-primary" target="_blank">Lihat Semua Publikasi</a>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="publications" style="background: #F7F9FC; padding: 5rem 2rem;">
+        <h2 class="section-title">Publikasi Buku</h2>
+        <div class="pub-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+            <div class="pub-card" style="background: white;">
+                <h4><a href="https://www.amazon.co.uk/AI-Hiring-Inefficiency-Potential-Recruitment/dp/B0FR25DQDM" target="_blank" style="color: #2C3E50; text-decoration: none;">AI for Hiring: Solving the Inefficiency in Finding Human Potential in Modern Recruitment</a></h4>
+                <p>Buku tentang penerapan kecerdasan buatan dalam proses rekrutmen dan identifikasi potensi manusia di era modern.</p>
+            </div>
+            <div class="pub-card" style="background: white;">
+                <h4><a href="https://unypress.uny.ac.id/buku/preorder-pengukuran-properti-psikometrik" target="_blank" style="color: #2C3E50; text-decoration: none;">Pengukuran Properti Psikometri</a></h4>
+                <p>Buku referensi tentang pengukuran dan properti psikometri dalam penelitian psikologi, diterbitkan oleh UNY Press.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="publications" style="background: white; padding: 5rem 2rem;">
+        <h2 class="section-title">Liputan Media</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">Prestasi akademik yang diraih telah diliput oleh berbagai media</p>
+        <div class="scroll-x" style="max-width: 1200px; margin: 0 auto;">
+            <div>
+                <div class="news-card">
+                    <h4><a href="https://www.krjogja.com/sleman/1242449271/uny-hari-ini-wisuda-1021-mahasiswa" target="_blank">Suka Membaca, Rafli Raih IPK Tertinggi</a></h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Wisudawan terbaik Universitas Negeri Yogyakarta periode 2023 dengan IPK 3,96 dari Program Studi Psikologi.</p>
+                    <p class="news-source">Kedaulatan Rakyat Jogja</p>
+                </div>
+            </div>
+            <div>
+                <div class="news-card">
+                    <h4><a href="https://uny.ac.id/id/berita/rafli-sodiq-bagaskara-raih-ipk-tertinggi-berkat-kesukaan-membaca" target="_blank">Rafli Sodiq Bagaskara Raih IPK Tertinggi Berkat Kesukaan Membaca</a></h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Profil lengkap wisudawan terbaik UNY yang memiliki passion tinggi di bidang penelitian dan literasi.</p>
+                    <p class="news-source">UNY Official</p>
+                </div>
+            </div>
+            <div>
+                <div class="news-card">
+                    <h4><a href="https://bacajogja.id/2023/06/02/profil-rafli-sodiq-bagaskara-si-kutu-buku-peraih-ipk-tertinggi-uny/" target="_blank">Profil Rafli Sodiq Bagaskara, Si Kutu Buku Peraih IPK Tertinggi UNY</a></h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Perjalanan akademik dan tips sukses dari lulusan terbaik Fakultas Ilmu Pendidikan dan Psikologi UNY.</p>
+                    <p class="news-source">Baca Jogja</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimoni">
+        <h2 class="section-title" style="color: #2C3E50;">Testimoni Klien</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Kak saya mengucapkan terima kasih banyak ya sudah dibantu dan diberikan saran masukan sehingga tau kesalahannya dimana sebelum lanjut menganalisis data."</p>
+                <p class="testimonial-author">— Lita, Mahasiswa S1 Gizi</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Makasih banyak Mas, review buat hari ini sangat-sangat membantu, jadi ga cuman tahu cara masuk-masukin angka di Jamovi tapi jadi tahu kenapa bisa dapat hasil kayak gitu. Semoga berkah ya mas ilmunya"</p>
+                <p class="testimonial-author">— Ira, Mahasiswa S1 Psikologi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tutor Diq</h3>
+                <p>Pendamping riset profesional untuk mahasiswa dan peneliti Indonesia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigasi</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#publikasi">Publikasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>Email: raflisodiq@gmail.com</p>
+                <p>Yogyakarta, Indonesia</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #4a5f7f;">
+            <p>&copy; 2025 Tutor Diq. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
